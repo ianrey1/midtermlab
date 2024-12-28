@@ -1,0 +1,7 @@
+<!-- customers/templates/customer_confirm_delete.html -->
+<h1>Are you sure you want to delete {{ customer.name }}?</h1>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Yes</button>
+    <a href="{% url 'customer-list' %}">Cancel</a>
+</form>

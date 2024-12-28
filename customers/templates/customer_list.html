@@ -1,0 +1,12 @@
+<!-- customers/templates/customer_list.html -->
+<h1>Customer List</h1>
+<ul>
+    {% for customer in customers %}
+        <li>
+            <a href="{% url 'customer-detail' customer.pk %}">{{ customer.name }}</a> - 
+            <a href="{% url 'customer-update' customer.pk %}">Update</a> | 
+            <a href="{% url 'customer-delete' customer.pk %}">Delete</a>
+        </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'customer-create' %}">Add New Customer</a>
