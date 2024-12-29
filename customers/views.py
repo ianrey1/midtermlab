@@ -1,36 +1,35 @@
-# customers/views.py
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
 from .models import Customer
 from .forms import CustomerForm
 
-# CreateView - Add a new customer
+# CreateView
 class CustomerCreateView(CreateView):
     model = Customer
     form_class = CustomerForm
     template_name = 'customer_form.html'
     success_url = reverse_lazy('customer-list')  # Redirect to customer list after creation
 
-# ListView - Display all customers
+# ListView
 class CustomerListView(ListView):
     model = Customer
     template_name = 'customer_list.html'
     context_object_name = 'customers'
 
-# DetailView - View details of a specific customer
+# DetailView
 class CustomerDetailView(DetailView):
     model = Customer
     template_name = 'customer_detail.html'
     context_object_name = 'customer'
 
-# UpdateView - Edit an existing customer
+# UpdateView
 class CustomerUpdateView(UpdateView):
     model = Customer
     form_class = CustomerForm
     template_name = 'customer_form.html'
     success_url = reverse_lazy('customer-list')
 
-# DeleteView - Delete a customer
+# DeleteView
 class CustomerDeleteView(DeleteView):
     model = Customer
     template_name = 'customer_confirm_delete.html'
